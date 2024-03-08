@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'welcome_screen.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       title: 'Path Guide',
       debugShowCheckedModeBanner: false,
       home: WelcomeScreen(),
