@@ -2,8 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pathguide/firebase_options.dart';
-
-import 'welcome_screen.dart';
+import 'package:pathguide/student/view/student_dashboard.dart';
+import 'package:pathguide/tutor/view/tutor_dashborad.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       title: 'Path Guide',
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
+      home: TutorHomePage(),
     );
   }
 }

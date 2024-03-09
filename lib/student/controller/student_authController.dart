@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pathguide/student/view/student_dashboard.dart';
 
 class StudentAuthController extends GetxController {
   final studentemail = TextEditingController();
@@ -60,6 +61,7 @@ class StudentAuthController extends GetxController {
       );
       studentemail.clear();
       studentpass.clear();
+      Get.to(const StudentHomePage());
       print("Logged in✔️✔️✔️✔️ ");
       // Get.offAll(const HomePage());
     } on FirebaseAuthException catch (e) {
