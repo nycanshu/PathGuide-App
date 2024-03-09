@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:pathguide/student/model/courseDataModel.dart';
+
 import 'package:pathguide/utils/app_colors.dart';
+
+import '../controller/course_controller.dart';
 
 class AddCourse extends StatelessWidget {
   const AddCourse({super.key});
 
   @override
   Widget build(BuildContext context) {
+    TutorCourseController tutorCourseController =
+        Get.put(TutorCourseController());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -36,6 +43,7 @@ class AddCourse extends StatelessWidget {
                 height: 20,
               ),
               TextFormField(
+                controller: tutorCourseController.coursetitle,
                 decoration: const InputDecoration(
                   labelText: 'Course Title',
                   border: OutlineInputBorder(),
@@ -43,6 +51,7 @@ class AddCourse extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               TextFormField(
+                controller: tutorCourseController.coursedesc,
                 decoration: const InputDecoration(
                   labelText: 'Course Description',
                   border: OutlineInputBorder(),
@@ -50,6 +59,7 @@ class AddCourse extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               TextFormField(
+                controller: tutorCourseController.tutorname,
                 decoration: const InputDecoration(
                   labelText: 'Course Tutor',
                   border: OutlineInputBorder(),
@@ -57,6 +67,7 @@ class AddCourse extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               TextFormField(
+                controller: tutorCourseController.duration,
                 decoration: const InputDecoration(
                   labelText: 'Course Duration',
                   border: OutlineInputBorder(),
@@ -64,6 +75,7 @@ class AddCourse extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               TextFormField(
+                controller: tutorCourseController.price,
                 decoration: const InputDecoration(
                   labelText: 'Course Price',
                   border: OutlineInputBorder(),
@@ -71,7 +83,17 @@ class AddCourse extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  tutorCourseController.addCourseToFirestore(
+                    Course(
+                      title: tutorCourseController.coursetitle.text,
+                      description: tutorCourseController.coursedesc.text,
+                      tutor: tutorCourseController.tutorname.text,
+                      duration: tutorCourseController.duration.text,
+                      price: tutorCourseController.price.text,
+                    ),
+                  );
+                },
                 child: Container(
                   height: 50,
                   width: double.infinity,
