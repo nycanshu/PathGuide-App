@@ -23,6 +23,12 @@ class TutorCourseController extends GetxController {
     price.clear();
   }
 
+  @override
+  void onInit() {
+    super.onInit();
+    fetchCourses();
+  }
+
   Future<void> addCourseToFirestore(Course course) async {
     try {
       await _firestore.collection('courses').add(course.toJson());
@@ -33,6 +39,37 @@ class TutorCourseController extends GetxController {
     } catch (e) {
       print('Error adding course: $e');
       Get.snackbar('Error', 'Failed to add course');
+    }
+  }
+
+  void fetchCourses() async {
+    try {
+      QuerySnapshot querySnapshot =
+          await _firestore.collection('courses').get();
+      courses.assignAll(
+          querySnapshot.docs.map((doc) => Course.fromFirestore(doc)).toList());
+    } catch (e) {
+      print("Error fetching😒😒😒😒😒 courses: $e");
+    }
+  }
+
+  Future<void> deleteCourse(String title) async {
+    try {
+      // Find the course with the provided title
+      Course courseToDelete = courses.firstWhere(
+        (course) => course.title == title,
+        orElse: () => throw 'Course not found',
+      );
+
+      // Delete the course document from Firestore
+      await _firestore.collection('courses').doc(title).delete();
+
+      // Remove the course from the list
+      courses.remove(courseToDelete);
+
+      print('Course deleted successfully');
+    } catch (e) {
+      print('Error deleting course: $e');
     }
   }
 }

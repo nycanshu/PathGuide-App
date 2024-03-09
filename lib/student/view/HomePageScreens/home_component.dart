@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pathguide/student/controller/courseController.dart';
-// Import the CoursesController
-// Import the Course model
 import 'package:pathguide/student/helper/course_card.dart';
 
-import 'allCourseComponent.dart';
+import 'package:pathguide/student/view/HomePageScreens/allCourseComponent.dart';
 
 class HomeScreen extends StatelessWidget {
-  CoursesController coursesController = Get.put(CoursesController());
+  final CoursesController coursesController = Get.put(CoursesController());
+  final TextEditingController searchController = TextEditingController();
 
-  HomeScreen({super.key}); // Initialize CoursesController
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,39 +19,15 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width - 20,
-              decoration: BoxDecoration(
-                color: Colors.black12,
-                borderRadius: BorderRadius.circular(10),
+            TextField(
+              controller: searchController,
+              onChanged: (value) {
+                coursesController.filterCourses(value);
+              },
+              decoration: InputDecoration(
+                labelText: 'Search for a course',
+                border: OutlineInputBorder(),
               ),
-              child: const Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Row(
-                  children: [
-                    Icon(Icons.search),
-                    SizedBox(width: 20),
-                    Text("Search Anything"),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              "Recently Played",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            // Example of a static CourseCard widget
-            const CourseCard(
-              title: "Flutter",
-              description: "Hello, this is the Flutter course",
-              tutor: "Himanshu Kumar",
-              duration: "2 hours",
-              price: "300 rs",
             ),
             const SizedBox(height: 15),
             Row(
@@ -81,17 +56,15 @@ class HomeScreen extends StatelessWidget {
             ),
             Expanded(
               child: Obx(() {
-                if (coursesController.courses.isEmpty) {
-                  // If courses are still being fetched, show a loading indicator
+                if (coursesController.filteredCourses.isEmpty) {
                   return const Center(
-                    child: CircularProgressIndicator(),
+                    child: Text("No courses found"),
                   );
                 } else {
-                  // Once courses are fetched, display them in a ListView
                   return ListView.builder(
-                    itemCount: coursesController.courses.length,
+                    itemCount: coursesController.filteredCourses.length,
                     itemBuilder: (context, index) {
-                      final course = coursesController.courses[index];
+                      final course = coursesController.filteredCourses[index];
                       return CourseCard(
                         title: course.title,
                         description: course.description,

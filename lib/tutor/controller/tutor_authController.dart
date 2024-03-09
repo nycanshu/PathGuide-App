@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pathguide/tutor/view/tutor_dashborad.dart';
+import 'package:pathguide/tutor/view/tutor_login.dart';
+import 'package:pathguide/welcome_screen.dart';
 
 class TutorAuthController extends GetxController {
   final tutorname = TextEditingController();
@@ -18,7 +21,7 @@ class TutorAuthController extends GetxController {
         'Success',
         'Account Created Successfully',
       );
-
+      Get.to(const TutorLogin());
       print("Signed up✔️✔️✔️✔️");
       // Get.offAll(const Signin());
     } on FirebaseAuthException catch (e) {
@@ -57,7 +60,7 @@ class TutorAuthController extends GetxController {
         'Success',
         'Login Sucessfully',
       );
-
+      Get.offAll(const TutorHomePage());
       print("Logged in✔️✔️✔️✔️ ");
       // Get.offAll(const HomePage());
     } on FirebaseAuthException catch (e) {
@@ -90,7 +93,7 @@ class TutorAuthController extends GetxController {
   //log out code
   void logOut() async {
     await auth.signOut();
-    //
+    Get.offAll(const WelcomeScreen());
     print('Logged out🙄🙄');
   }
 }

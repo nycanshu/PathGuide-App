@@ -61,7 +61,7 @@ class StudentAuthController extends GetxController {
       );
       studentemail.clear();
       studentpass.clear();
-      Get.to(const StudentHomePage());
+      Get.offAll(const StudentHomePage());
       print("Logged in✔️✔️✔️✔️ ");
       // Get.offAll(const HomePage());
     } on FirebaseAuthException catch (e) {

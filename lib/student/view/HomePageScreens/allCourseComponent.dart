@@ -2,20 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pathguide/student/controller/courseController.dart';
 import 'package:pathguide/student/helper/course_card.dart';
-import 'package:pathguide/utils/app_colors.dart';
 
 class AllCourse extends StatelessWidget {
-  const AllCourse({Key? key}) : super(key: key);
+  const AllCourse({super.key});
 
   @override
   Widget build(BuildContext context) {
     CoursesController coursesController = Get.put(CoursesController());
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.lightblueshade,
-        centerTitle: true,
-        title: const Text("All Courses"),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: Expanded(
