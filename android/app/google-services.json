@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "134800071720",
+    "project_id": "pathguide-7ae0f",
+    "storage_bucket": "pathguide-7ae0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134800071720:android:59ef592df133e7a74fa91d",
+        "android_client_info": {
+          "package_name": "com.example.pathguide"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7ulHEo0nVm_8p3sJHhfkPK_udcqXWogg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

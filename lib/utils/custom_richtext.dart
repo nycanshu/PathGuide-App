@@ -9,17 +9,18 @@ class CustomRichText extends StatelessWidget {
   final Function() onTap;
   const CustomRichText(
       {Key? key,
-        required this.description,
-        required this.text,
-        required this.onTap})
+      required this.description,
+      required this.text,
+      required this.onTap})
       : super(key: key);
 // "Don't already Have an account? "
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-          left: MediaQuery.of(context).size.width * 0.149,
-          top: MediaQuery.of(context).size.height * 0.08),
+        left: MediaQuery.of(context).size.width * 0.149,
+        top: MediaQuery.of(context).size.height * 0.02,
+      ),
       child: Text.rich(
         TextSpan(
             text: description,
