@@ -52,16 +52,19 @@ class _StudentHomePageState extends State<StudentHomePage> {
             label: "All Courses",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Settings",
+            icon: Icon(Icons.person),
+            label: "Profile",
           ),
         ],
       ),
       appBar: AppBar(
-        leading: const Icon(
-          Icons.menu,
-          color: AppColors.black,
-          size: 30,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.menu,
+            color: AppColors.black,
+            size: 30,
+          ),
         ),
         centerTitle: true,
         backgroundColor: AppColors.lightblueshade,

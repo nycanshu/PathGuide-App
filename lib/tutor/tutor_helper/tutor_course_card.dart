@@ -1,17 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-import 'package:pathguide/student/view/course_page.dart';
 
-class CourseCard extends StatelessWidget {
+class TutorCourseCard extends StatelessWidget {
   final String title;
   final String description;
   final String tutor;
   final String duration;
   final String price;
 
-  const CourseCard({
+  const TutorCourseCard({
     super.key,
     required this.title,
     required this.description,
@@ -25,9 +22,7 @@ class CourseCard extends StatelessWidget {
     return Card(
       elevation: 5,
       child: InkWell(
-        onTap: () {
-          Get.to(CoursePage(title: title));
-        },
+        onTap: () {},
         child: Expanded(
           child: Padding(
             padding: const EdgeInsets.all(10),
@@ -79,47 +74,12 @@ class CourseCard extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        height: 50,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 159, 191, 217),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Icon(
-                          Icons.favorite_border,
-                          color: Colors.black,
-                          size: 30,
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        height: 50,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            "Buy Now",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text("Delete Course"),
                     ),
                   ],
                 )

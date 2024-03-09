@@ -5,6 +5,8 @@ import 'package:pathguide/student/controller/courseController.dart';
 // Import the Course model
 import 'package:pathguide/student/helper/course_card.dart';
 
+import 'allCourseComponent.dart';
+
 class HomeScreen extends StatelessWidget {
   CoursesController coursesController = Get.put(CoursesController());
 
@@ -13,9 +15,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -49,8 +48,6 @@ class HomeScreen extends StatelessWidget {
             ),
             // Example of a static CourseCard widget
             const CourseCard(
-              image:
-                  "https://firebasestorage.googleapis.com/v0/b/pathguide-7ae0f.appspot.com/o/path_guide.png?alt=media&token=c74d4c60-0bf2-46cd-8cbd-711bd31598bb",
               title: "Flutter",
               description: "Hello, this is the Flutter course",
               tutor: "Himanshu Kumar",
@@ -69,7 +66,9 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const Spacer(),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(AllCourse());
+                  },
                   child: const Text(
                     "View All",
                     style: TextStyle(
@@ -94,7 +93,6 @@ class HomeScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final course = coursesController.courses[index];
                       return CourseCard(
-                        image: course.image,
                         title: course.title,
                         description: course.description,
                         tutor: course.tutor,
