@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:pathguide/student/controller/courseController.dart';
+import 'package:pathguide/student/controller/helper_controller.dart';
+import 'package:pathguide/student/model/courseDataModel.dart';
 import 'package:pathguide/student/view/course_page.dart';
 
 class CourseCard extends StatelessWidget {
@@ -22,6 +25,7 @@ class CourseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HelperController helperController = Get.put(HelperController());
     return Card(
       elevation: 5,
       child: InkWell(
@@ -102,7 +106,17 @@ class CourseCard extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        helperController.buyedcourses.add(
+                          Course(
+                            title: title,
+                            description: description,
+                            tutor: tutor,
+                            duration: duration,
+                            price: price,
+                          ),
+                        );
+                      },
                       child: Container(
                         height: 50,
                         width: 150,

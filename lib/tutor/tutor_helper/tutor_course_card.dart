@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:pathguide/student/model/courseDataModel.dart';
+import 'package:pathguide/tutor/controller/course_controller.dart';
 
 class TutorCourseCard extends StatelessWidget {
   final String title;
@@ -19,6 +22,8 @@ class TutorCourseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TutorCourseController tutorCourseController =
+        Get.put(TutorCourseController());
     return Card(
       elevation: 5,
       child: InkWell(
@@ -78,7 +83,9 @@ class TutorCourseCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        tutorCourseController.deleteCourse(title);
+                      },
                       child: const Text("Delete Course"),
                     ),
                   ],

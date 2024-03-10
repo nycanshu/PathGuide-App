@@ -5,7 +5,6 @@ import 'package:pathguide/utils/app_colors.dart';
 import '../controller/tutor_authController.dart';
 import 'bottomnavbarComponent/course_component.dart';
 import 'bottomnavbarComponent/feedback_component.dart';
-import 'bottomnavbarComponent/home_Component.dart';
 import 'bottomnavbarComponent/testComponent.dart';
 
 class TutorHomePage extends StatefulWidget {
@@ -19,7 +18,6 @@ class _TutorHomePageState extends State<TutorHomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    HomeScreen(),
     CourseScreen(),
     TestScreen(),
     FeedbackScreen(),
@@ -43,10 +41,6 @@ class _TutorHomePageState extends State<TutorHomePage> {
         items: const [
           BottomNavigationBarItem(
             backgroundColor: AppColors.lightblueshade,
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.video_library),
             label: "Course",
           ),

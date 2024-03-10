@@ -1,4 +1,7 @@
 import 'package:get/get.dart';
+import 'package:get/get_rx/get_rx.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:pathguide/student/model/courseDataModel.dart';
 
 class HelperController extends GetxController {
   List<Map<String, dynamic>> courseData = [
@@ -12,4 +15,14 @@ class HelperController extends GetxController {
       "price": "20",
     },
   ];
+
+  RxList<Course> buyedcourses = [
+    Course(
+      title: "Learn English",
+      description: "Learn English",
+      tutor: "John Doe",
+      duration: "2 hours",
+      price: "20",
+    ),
+  ].obs;
 }

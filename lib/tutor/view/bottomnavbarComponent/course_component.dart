@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:pathguide/student/controller/courseController.dart';
+
+import 'package:pathguide/tutor/controller/course_controller.dart';
 
 import 'package:pathguide/tutor/tutor_helper/tutor_course_card.dart';
 import 'package:pathguide/tutor/view/add_course.dart';
@@ -13,7 +14,8 @@ class CourseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CoursesController coursesController = Get.put(CoursesController());
+    TutorCourseController tutorCourseController =
+        Get.put(TutorCourseController());
     return Padding(
       padding: const EdgeInsets.only(
         top: 10,
@@ -60,7 +62,7 @@ class CourseScreen extends StatelessWidget {
           ),
           Expanded(
             child: Obx(() {
-              if (coursesController.courses.isEmpty) {
+              if (tutorCourseController.courses.isEmpty) {
                 // If courses are still being fetched, show a loading indicator
                 return const Center(
                   child: CircularProgressIndicator(),
@@ -68,9 +70,9 @@ class CourseScreen extends StatelessWidget {
               } else {
                 // Once courses are fetched, display them in a ListView
                 return ListView.builder(
-                  itemCount: coursesController.courses.length,
+                  itemCount: tutorCourseController.courses.length,
                   itemBuilder: (context, index) {
-                    final course = coursesController.courses[index];
+                    final course = tutorCourseController.courses[index];
                     return TutorCourseCard(
                       title: course.title,
                       description: course.description,

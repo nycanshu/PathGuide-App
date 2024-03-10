@@ -39,6 +39,9 @@ dependencies:
   firebase_core: ^2.27.0
   firebase_auth: ^4.17.8
   cloud_firestore: ^4.15.8
+  zego_uikit_prebuilt_call: ^3.1.0
+  zego_uikit_signaling_plugin: ^2.0.3
+  zego_uikit_prebuilt_live_streaming: ^2.3.6
 
 dev_dependencies:
   flutter_test:

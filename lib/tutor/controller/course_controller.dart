@@ -66,7 +66,8 @@ class TutorCourseController extends GetxController {
 
       // Remove the course from the list
       courses.remove(courseToDelete);
-
+      fetchCourses();
+      Get.snackbar('Success', 'Course deleted successfully');
       print('Course deleted successfully');
     } catch (e) {
       print('Error deleting course: $e');
