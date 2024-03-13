@@ -8,7 +8,7 @@ Student - He can view all courses. He can filter courses, buy and save it for la
 # Demo Video Presentation of the App
 
 This video contains all the explanaion of the Project 
-[Click Here to watch video] (https://drive.google.com/file/d/1lZkcP4F7mtUfCNiLr-P_8SuZv0PZ3uHQ/view?usp=sharing)
+[click to watch video] (https://drive.google.com/file/d/1lZkcP4F7mtUfCNiLr-P_8SuZv0PZ3uHQ/view?usp=sharing)
 
 
 ## Features
