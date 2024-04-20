@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:pathguide/student/controller/student_authController.dart';
 import 'package:pathguide/student/view/HomePageScreens/allCourseComponent.dart';
 import 'package:pathguide/student/view/HomePageScreens/home_component.dart';
 import 'package:pathguide/student/view/HomePageScreens/learningComponet.dart';
@@ -31,6 +34,8 @@ class _StudentHomePageState extends State<StudentHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    StudentAuthController studentAuthController =
+        Get.put(StudentAuthController());
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,
@@ -79,7 +84,9 @@ class _StudentHomePageState extends State<StudentHomePage> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              studentAuthController.logOut();
+            },
             icon: const Icon(
               Icons.logout,
               color: AppColors.black,

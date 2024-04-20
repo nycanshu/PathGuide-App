@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pathguide/student/view/student_dashboard.dart';
+import 'package:pathguide/student/view/student_login.dart';
+import 'package:pathguide/welcome_screen.dart';
 
 class StudentAuthController extends GetxController {
   final studentemail = TextEditingController();
@@ -20,7 +22,7 @@ class StudentAuthController extends GetxController {
         'Success',
         'Account Created Successfully',
       );
-
+      Get.to(const StudentLogin());
       print("Signed up✔️✔️✔️✔️");
       // Get.offAll(const Signin());
     } on FirebaseAuthException catch (e) {
@@ -94,7 +96,7 @@ class StudentAuthController extends GetxController {
   //log out code
   void logOut() async {
     await auth.signOut();
-    //
+    Get.offAll(const WelcomeScreen());
     print('Logged out🙄🙄');
   }
 }
